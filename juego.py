@@ -38,6 +38,7 @@ def juego():
     except ValueError:
         messagebox.showwarning("Atención", "ERROR")
 
+#dificultades
 def Dificultad(value):
     global nivel
     if value == "FÁCIL":
@@ -46,11 +47,12 @@ def Dificultad(value):
         nivel = 10
     elif value == "DIFICIL":
         nivel = 100
-    mos.config(text=f"Dificultad: {value} (Número entre 1 y {nivel})")
 
+#funcion para cerrar el juego
 def Cerrar():
     root.destroy()
 
+#configuración
 niveles = ["FÁCIL", "MEDIO", "DIFICIL"]
 selected_option = StringVar()
 selected_option.set(niveles[0])

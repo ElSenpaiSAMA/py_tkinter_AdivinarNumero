@@ -1,12 +1,15 @@
 import random
 import tkinter as tk
 from tkinter import messagebox, StringVar, OptionMenu
+import pygame
 
+pygame.mixer.init()
 root = tk.Tk()
 root.title("Juego")
 root.geometry("600x450")
 nivel = 0
 intentos = 10
+pausa = True
 
 def juego():
     global nivel
@@ -51,6 +54,18 @@ def Dificultad(value):
 #funcion para cerrar el juego
 def Cerrar():
     root.destroy()
+#musica
+def musica():
+    global pausa
+    if pausa:
+        pygame.mixer.music.load("./contenido/hola.mp3")
+        pygame.mixer.music.play(loops=0)
+        musi.config(text="Pausa")
+        pausa = False
+    else:
+        pygame.mixer.music.pause()
+        musi.config(text="DIVIERTETE :)")
+        pausa = True
 
 #configuración
 niveles = ["FÁCIL", "MEDIO", "DIFICIL"]
@@ -66,6 +81,8 @@ boton = tk.Button(root, text="JUGAR", command=juego)
 boton.pack(pady=15)
 mos = tk.Label(root, text="", font=("Helvetica", 12))
 mos.pack(pady=20)
+musi = tk.Button(root, text="DIVIERTETE :)", command=musica)
+musi.pack(pady=35)
 
 root.mainloop()
 

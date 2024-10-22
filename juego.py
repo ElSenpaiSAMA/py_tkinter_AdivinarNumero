@@ -50,6 +50,8 @@ def Dificultad(value):
         nivel = 10
     elif value == "DIFICIL":
         nivel = 100
+    mostrar = f"Has seleccionado la dificultad {value}, adivina un numero entre 0 y {nivel}"
+    mos.config(text=mostrar)
 
 #funcion para cerrar el juego
 def Cerrar():
